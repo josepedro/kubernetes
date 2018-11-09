@@ -1,0 +1,236 @@
+    1  git clone https://github.com/kubernetes/examples
+    2  cd examples/guestbook
+    3  gcloud container clusters     get-credentials <cluster-name>     --zone <cluster-zone>gcloud container clusters     get-credentials <cluster-name> \
+    4  gcloud container clusters     get-credentials testpdp     --zone us-central1-a
+    5  cat redis-master-deployment.yaml
+    6  kubectl create -f     redis-master-deployment.yaml
+    7  kubectl get pods
+    8  cat redis-master-service.yaml
+    9  kubectl create -f     redis-master-service.yaml
+   10  kubectl get service
+   11  kubectl get pods
+   12  kubectl get
+   13  kubectl get deployments
+   14  kubectl get pods
+   15  kubectl get service
+   16  ls
+   17  kubectl create -f     frontend-deployment.yaml
+   18  sed -i -e 's/NodePort/LoadBalancer/g'     frontend-service.yaml
+   19  kubectl create -f     frontend-service.yaml
+   20  kubectl get services --watch
+   21  kubectl get services
+   22  kubectl describe services 
+   23  gcloud config set project testPDP
+   24  gcloud config set project testpdp-220618
+   25  git clone     https://github.com/kubernetes/examples
+   26  ls
+   27  cd examples/
+   28  ls
+   29  cd guestbook
+   30  ls
+   31  vim frontend-deployment.yaml 
+   32  kubectl create -f frontend-deployment.yaml 
+   33  kubectl config set-cluster ${KUBE_CONTEXT} --insecure-skip-tls-verify=true --server=${KUBE_CONTEXT}
+   34  ls
+   35  mkdir nginx
+   36  cd nginx/
+   37  ls
+   38  wget https://raw.githubusercontent.com/GoogleCloudPlatform/endpoints-samples/master/k8s/nginx.conf
+   39  ls
+   40  kubectl create configmap nginx-config --from-file=nginx.conf
+   41  kubectl config set-cluster gke_my-project --insecure-skip-tls-verify=true
+   42  kubectl config set-cluster testpdp-220618 --insecure-skip-tls-verify=true
+   43  kubectl create configmap nginx-config --from-file=nginx.conf
+   44  kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
+   45  kubectl create configmap nginx-config --from-file=nginx.conf
+   46  rm ~/.kube/config
+   47  kubectl create configmap nginx-config --from-file=nginx.conf
+   48  kubectl config set-cluster ${KUBE_CONTEXT} --insecure-skip-tls-verify=true --server=${KUBE_CONTEXT}
+   49  kubectl config set-cluster testpdp-220618 --insecure-skip-tls-verify=true
+   50  kubectl create configmap nginx-config --from-file=nginx.conf
+   51  gcloud container clusters get-credentials testpdp --zone us-central1-a --project testpdp-220618
+   52  gcloud container clusters get-credentials testpdp --zone us-central1-a --project testpdp-220618ls
+   53  ls
+   54  cd nginx
+   55  ls
+   56  kubectl create configmap nginx-config --from-file=nginx.conf
+   57  wget https://raw.githubusercontent.com/GoogleCloudPlatform/endpoints-samples/master/k8s/esp_echo_custom_config_gke.yaml
+   58  ls
+   59  kubectl create -f esp_echo_custom_config_gke.yaml
+   60  kubectl 
+   61  kubectl get
+   62  kubectl get all
+   63  ls
+   64  cd ..
+   65  ls
+   66  cd examples/
+   67  ls
+   68  history 
+   69  ls
+   70  cd guestbook
+   71  kubectl create -f frontend-deployment.yaml
+   72  kubectl get all
+   73  vim frontend-service.yaml 
+   74  kubectl create -f     frontend-service.yaml
+   75  kubectl get services --watch
+   76  helm install stable/nginx-ingress --namespace kube-system --set controller.hostNetwork=true,controller.kind=DaemonSet
+   77  ls
+   78  cd ..
+   79  git clone https://github.com/jonbcampos/kubernetes-series.git
+   80  cd ~/kubernetes-series/helm/scripts
+   81  sh startup.sh
+   82  sh add_helm.sh
+   83  helm ls
+   84  helm install stable/nginx-ingress --namespace kube-system --set controller.hostNetwork=true,controller.kind=DaemonSet
+   85  helm install stable/joomla --name ingress-example
+   86  export SERVICE_IP=$(kubectl get svc --namespace default ingress-example-joomla --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
+   87  kubectl patch svc ingress-example-joomla --type='json' -p '[{"op":"remove","path":"/spec/ports/0/nodePort"},{"op":"remove","path":"/spec/ports/1/nodePort"},{"op":"replace","path":"/spec/type","value":"ClusterIP"}]'
+   88  vim basic-ingress.yaml
+   89  kubectl apply -f basic-ingress.yaml
+   90  vim basic-ingress.yaml
+   91  kubectl apply -f basic-ingress.yaml
+   92  rm basic-ingress.yaml 
+   93  vim basic-ingress.yaml
+   94  kubectl apply -f basic-ingress.yaml
+   95  vim basic-ingress.yaml
+   96  kubectl apply -f basic-ingress.yaml
+   97  kubectl apply -f basic-ingress.yaml --validate=false
+   98  kubectl get all
+   99  kubectl get ingress
+  100  kubectl get ingress joomla-ingress
+  101  vim basic-ingress.yaml
+  102  kubectl apply -f basic-ingress.yaml --validate=false
+  103  kubectl apply -f basic-ingress.yaml
+  104  kubectl apply -f basic-ingress.yaml --validate=false
+  105  vim basic-ingress.yaml
+  106  kubectl apply -f basic-ingress.yaml
+  107  kubectl get ingress joomla-ingress
+  108  helm install stable/kube-lego --namespace kube-system --set config.LEGO_EMAIL=YOUR_EMAIL,config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+  109  helm install stable/kube-lego --namespace kube-system --set config.LEGO_EMAIL=jose.pedro@dynamox.net,config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+  110  vim tls-ingress.yaml
+  111  kubectl apply -f tls-ingress.yaml
+  112  vim tls-ingress.yaml
+  113  kubectl apply -f tls-ingress.yaml
+  114  vim tls-ingress.yaml
+  115  kubectl apply -f tls-ingress.yaml
+  116  kubectl apply -f tls-ingress.yaml --validate=false
+  117  vim tls-ingress.yaml
+  118  kubectl apply -f tls-ingress.yaml
+  119  vim tls-ingress.yaml
+  120  kubectl get ingress 
+  121  vim tls-ingress.yaml
+  122  kubectl apply -f tls-ingress.yaml
+  123  helm install stable/kube-lego --namespace kube-system --set config.LEGO_EMAIL=YOUR_EMAIL,config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+  124  vim tls-ingress.yaml
+  125  ls
+  126  vim basic-ingress.yaml 
+  127  vim tls-ingress.yaml
+  128  cat basic-ingress.yaml 
+  129  vim tls-ingress.yaml 
+  130  kubectl apply -f tls-ingress.yaml
+  131  vim tls-ingress.yaml 
+  132  kubectl apply -f tls-ingress.yaml
+  133  kubectl get ingress 
+  134  kubectl 
+  135  kubectl delete
+  136  kubectl delete ingress test-ingress
+  137  kubectl get ingress 
+  138  kubectl delete ingress joomla-ingress
+  139  kubectl apply -f tls-ingress.yaml
+  140  vim tls-ingress.yaml 
+  141  kubectl apply -f tls-ingress.yaml
+  142  helm repo update
+  143  helm install --version 0.18.1 --set controller.extraArgs.enable-ssl-passthrough="" stable/ingress-nginx
+  144  kubectl get
+  145  kubectl get all
+  146  helm install --version 0.18.1 --set controller.extraArgs.enable-ssl-passthrough="" stable/ingress-nginx
+  147  helm install --set controller.extraArgs.enable-ssl-passthrough="" stable/ingress-nginx
+  148  helm install --name cert-manager --namespace default stable/cert-manager
+  149  vim tls-ingress.yaml 
+  150  kubectl apply -f tls-ingress.yaml
+  151  helm install stable/kube-lego --namespace kube-system --set config.LEGO_EMAIL=1jpsneto@gmail.com,config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+  152  kubectl apply -f tls-ingress.yaml
+  153  kubectl get secret
+  154  vim tls-ingress.yaml 
+  155  kubectl apply -f tls-ingress.yaml
+  156  vim tls-ingress.yaml 
+  157  kubectl apply -f tls-ingress.yaml
+  158  kubectl get all
+  159  ls
+  160  cd kubernetes-series/
+  161  ls
+  162  cd ..
+  163  ls
+  164  cd nginx/
+  165  ls
+  166  history 
+  167  cd ..
+  168  ls
+  169  cd kubernetes-series/helm/
+  170  ls
+  171  cd scripts/
+  172  ls
+  173  vim tls-ingress.yaml 
+  174  kubectl get all
+  175  kubectl create serviceaccount -n kube-system tiller
+  176  kubectl create clusterrolebinding tiller-binding     --clusterrole=cluster-admin     --serviceaccount kube-system:tiller
+  177  helm init --service-account tiller
+  178  history | grep helm
+  179  ls
+  180  cd kubernetes-series/
+  181  ls
+  182  cd helm/
+  183  ls
+  184  helm
+  185  cd scripts/
+  186  sh add_helm.sh 
+  187  helm repo update
+  188  helm install --name cert-manager --version v0.5.0     --namespace kube-system stable/cert-manager
+  189  helm ls --all cert-manager
+  190  export EMAIL=1jpsneto@gmail.com
+  191  curl -sSL https://rawgit.com/ahmetb/gke-letsencrypt/master/yaml/letsencrypt-issuer.yaml |     sed -e "s/email: ''/email: $EMAIL/g" |     kubectl apply -f-
+  192  kubectl apply -f https://raw.githubusercontent.com/ahmetb/gke-letsencrypt/master/yaml/sample-app.yaml
+  193  gcloud compute addresses create helloweb-ip --global
+  194  kubectl apply -f https://raw.githubusercontent.com/ahmetb/gke-letsencrypt/master/yaml/sample-ingress.yaml
+  195  kubectl get ingress -W
+  196  kubectl get ingress -w
+  197  kubectl get ingress
+  198  kubectl
+  199  kubectl delete ingress joomla-ingress
+  200  kubectl get ingress
+  201  curl -O https://raw.githubusercontent.com/ahmetb/gke-letsencrypt/master/yaml/certificate.yaml
+  202  vim certificate.yaml 
+  203  kubectl apply -f certificate.yaml
+  204  kubectl get secrets
+  205  kubectl describe -f certificate.yaml
+  206  vim certificate.yaml 
+  207  kubectl describe -f certificate.yaml
+  208  ls
+  209  vim tls-ingress.yaml 
+  210  ls
+  211  history 
+  212  ls
+  213  cd ..
+  214  ls
+  215  cd scripts/
+  216  ls
+  217  kubectl get all
+  218  curl -O https://raw.githubusercontent.com/ahmetb/gke-letsencrypt/master/yaml/sample-ingress-tls.yaml
+  219  vim sample-ingress-tls.yaml
+  220  kubectl apply -f sample-ingress-tls.yaml 
+  221  kubectl get all
+  222  kubectl get ingress
+  223  ls
+  224  cat tls-ingress.yaml 
+  225  kubectl get ingress
+  226  ￼
+  227  history 
+  228  ubectl get all
+  229  ls
+  230  cd ..
+  231  cd ~
+  232  ls
+  233  git clone https://github.com/josepedro/kubernetes.git
+  234  ls
+  235  cd kubernetes
+  236  history > log_commands
